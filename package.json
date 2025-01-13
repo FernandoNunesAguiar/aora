@@ -6,15 +6,17 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build": "babel src -d lib"
   },
   "dependencies": {
+    "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "expo": "~52.0.25",
     "expo-constants": "~17.0.4",
     "expo-linking": "~7.0.4",
     "expo-router": "~4.0.16",
     "expo-status-bar": "~2.0.1",
-    "nativewind": "^4.1.23",
+    "nativewind": "^2.0.11",
     "react": "18.3.1",
     "react-native": "0.76.6",
     "react-native-reanimated": "~3.16.1",
