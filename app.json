@@ -14,13 +14,17 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "package": "com.fda.aora"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+        
+      },
+      "package": "com.fda.aora"
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
