@@ -18,6 +18,7 @@ const SignUp = () => {
   })
   const [isSubmitting, setSubmitting] = useState(false);
   const { setUser, setisLoggedIn } = useGlobalContext();
+  
   const submit = async () => {
     if(!form.username || !form.email || !form.password){
       Alert.alert('Error', 'Please fill in all the fields');
@@ -45,7 +46,7 @@ const SignUp = () => {
       <ScrollView>
           <View className="w-full justify-center min-h-[95vh] px-4 my-6">
             <Image source={images.logo}
-            resizeMode='contain' className="w-[115px h-[35px]" />
+            resizeMode='contain' className="w-[115px] h-[35px]" />
 
             <Text className="text-2xl text-white
             text-semibold mt-10 font-psemibold">Sign Up to Aora</Text>
