@@ -6,7 +6,7 @@ import { images } from '../../constants'
 import SearchInput from '../../components/SearchInput'
 import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
-import { getAllPosts } from '../../lib/appwrite'
+import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
 import hookVideos from '../../lib/hookVideos'
 import VideoCard from '../../components/VideoCard'
 
@@ -14,6 +14,8 @@ import VideoCard from '../../components/VideoCard'
 const Home = () => {
 
   const { data: posts, refetch  } = hookVideos(getAllPosts);
+
+  const { data: latestPosts  } = hookVideos(getLatestPosts);
 
   const [refreshing, setRefreshing] = useState(false)
 
@@ -58,7 +60,7 @@ const Home = () => {
                 Latest Videos
               </Text>
 
-              <Trending posts={[{ id: 1 }, { id: 2 }, { id: 3 }] ?? []} />
+              <Trending posts={latestPosts ?? []} />
 
 
             </View>
