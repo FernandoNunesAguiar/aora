@@ -19,7 +19,7 @@ const VideoCard = ({ video: { title, thumbnail, video, creator: { username, avat
                         <Text className="text-xs text-gray-100 font-p-regular" numberOfLines={1}>
                             {username}
                         </Text>
-                    </View>
+                    </View> 
                 </View>
                 <View className="pt-2">
                     <Image source={icons.menu} className="w-5 h-5" resizeMode='contain' />
