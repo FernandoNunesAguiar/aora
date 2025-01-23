@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Alert } from 'react-native'
 import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
@@ -40,8 +40,8 @@ const RooyLayout = () => {
               false }} /> 
               <Stack.Screen name="(tabs)" options={{ headerShown:
               false }} /> 
-              {/* <Stack.Screen name="/search/[query]" options={{ headerShown:
-              false }} /> */}
+              { <Stack.Screen name="search/[query]" options={{ headerShown:
+              false }} /> }
           </Stack>
         </GlobalProvider>
 
