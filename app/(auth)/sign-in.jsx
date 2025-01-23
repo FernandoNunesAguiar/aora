@@ -10,14 +10,17 @@ import { getCurrentUser, signIn } from '../../lib/appwrite'
 import { useGlobalContext } from '../../context/GlobalProvider';
 
 const SignIn = () => {
+  const { setUser, setIsLoggedIn } = useGlobalContext();
+  const [ isSubmitting, setSubmitting] = useState(false)
+  
+ 
+
   const [form, setForm] = useState({
     email: '',
     password: ''
 
   })
-  const [isSubmitting, setSubmitting] = useState(false)
 
-  const { setUser, setisLoggedIn } = useGlobalContext();
   const submit = async () => {
     if(!form.email || !form.password){
       Alert.alert('Error', 'Please fill in all the fields')
@@ -27,7 +30,7 @@ const SignIn = () => {
       await signIn(form.email, form.password);
       const result = await getCurrentUser();
       setUser(result);
-      setisLoggedIn(true);
+      setIsLoggedIn(true);
 
       Alert.alert("Success", "User signed in successfully");
       router.replace("/home");
