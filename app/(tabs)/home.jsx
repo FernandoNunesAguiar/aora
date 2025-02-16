@@ -14,9 +14,9 @@ import { useGlobalContext } from '../../context/GlobalProvider'
 
 const Home = () => {
 
-  const { user, setUser, setIsLoggedIn } = useGlobalContext();
+  const { user } = useGlobalContext();
 
-  const { data: posts, refetch  } = hookVideos(getAllPosts);
+  const { data: refetch  } = hookVideos(getAllPosts);
 
   const { data: latestPosts  } = hookVideos(getLatestPosts);
 

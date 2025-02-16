@@ -45,12 +45,13 @@ export default function App() {
             mt-7 text-center">Where creativity meets innovation Embark on a journey of
               limitless exploration with Aora
             </Text>
-
-            <CustomButton
-              title="Continue with Email"
-              handlePress={() => router.push('/sign-in')}
-              containerStyles="w-full mt-8"
-            />
+            <View className="mt-5">
+              <CustomButton
+                title="Continue with Email"
+                handlePress={() => router.push('/sign-in')}
+                containerStyles="w-full"
+              />
+            </View>
           </View>
         </View>
       </ScrollView>
