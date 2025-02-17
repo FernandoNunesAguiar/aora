@@ -1,8 +1,6 @@
-import { StyleSheet, Text, View, Alert } from 'react-native'
 import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
-import { Analytics } from "@vercel/analytics/react"
 
 import GlobalProvider from '../context/GlobalProvider';
 

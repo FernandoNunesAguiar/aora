@@ -13,6 +13,7 @@ export default function App() {
   if(!isLoading && isLoggedIn) return <Redirect href="/home" />
 
   return (
+ 
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: '102%'}}>
         <View className="w-full justify-center items-center
