@@ -4,14 +4,14 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import SearchInput from '../../components/SearchInput'
 import EmptyState from '../../components/EmptyState'
 import { searchPosts } from '../../lib/appwrite'
-import hookVideos from '../../lib/hookVideos'
+import useAppwrite from '../../lib/useAppwrite'
 import VideoCard from '../../components/VideoCard'
 import { useLocalSearchParams } from 'expo-router'
 
 
 const Search = () => {
   const { query } = useLocalSearchParams();
-  const { data: posts, refetch } = hookVideos(searchPosts(()=> (query)));
+  const { data: posts, refetch } = useAppwrite(searchPosts(()=> (query)));
   
 
 

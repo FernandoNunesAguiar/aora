@@ -15,16 +15,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "package": "com.fda.aora"
+      "package": "com.fernando.aora"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-        
       },
-      "package": "com.fda.aora"
-
+      "package": "com.fernando.aora"
     },
     "web": {
       "favicon": "./assets/favicon.png"

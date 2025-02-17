@@ -1,25 +1,18 @@
-import { View, Text, FlatList, Image, RefreshControl, Alert } from 'react-native'
-import React, {useEffect, useState} from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-
-import { images } from '../../constants'
-import SearchInput from '../../components/SearchInput'
-import Trending from '../../components/Trending'
-import EmptyState from '../../components/EmptyState'
-import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
-import hookVideos from '../../lib/hookVideos'
-import VideoCard from '../../components/VideoCard'
-import { useGlobalContext } from '../../context/GlobalProvider'
+import { View, Text, FlatList, Image, RefreshControl } from 'react-native';
+import React, {useState} from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { images } from '../../constants';
+import { getAllPosts, getLatestPosts } from '../../lib/appwrite';
+import useAppwrite from '../../lib/useAppwrite';
+import { useGlobalContext } from '../../context/GlobalProvider';
+import { EmptyState, SearchInput, Trending, VideoCard } from "../../components";
 
 
 const Home = () => {
 
   const { user } = useGlobalContext();
-
-  const { data: refetch  } = hookVideos(getAllPosts);
-
-  const { data: latestPosts  } = hookVideos(getLatestPosts);
-
+  const { data: posts, refetch  } = useAppwrite(getAllPosts);
+  const { data: latestPosts  } = useAppwrite(getLatestPosts);
   const [refreshing, setRefreshing] = useState(false)
 
   const onRefresh = async () =>{
@@ -31,12 +24,20 @@ const Home = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <FlatList
-        data={[{ id: 1 }, { id: 2 }, { id: 3, }]}
+        data={posts}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
-          <VideoCard video={item} />
+          <VideoCard 
+            title={item.title}
+            thumbnail ={item.thumbnail}
+            video = {item.video}
+            creator = {item.creator.username}
+            avatar ={item.creator.avatar}
+          />
         )}
+        
         ListHeaderComponent={() => (
+         
           <View className="my-6 px-4 space-y-6">
             <View className="justify-between items-start flex-row mb-6">
               <View>
@@ -44,7 +45,7 @@ const Home = () => {
                   Welcome Back,
                 </Text>
                 <Text className="text-2xl font-psemibold text-white">
-                  {user?.username};
+                  {user?.username ?? []};
                 </Text>
               </View>
               <View className="mt-1.5">
@@ -70,6 +71,7 @@ const Home = () => {
           </View>
 
         )}
+          
         ListEmptyComponent={() => (
           <EmptyState
             title="No Videos Found"
@@ -77,7 +79,9 @@ const Home = () => {
           />
         )}
 
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
+        }
 
       />
     </SafeAreaView>

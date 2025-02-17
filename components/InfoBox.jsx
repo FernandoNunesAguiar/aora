@@ -10,4 +10,4 @@ const InfoBox = ( title, subtitle, containerStyles, titleStyles) => {
   )
 }
 
-export default InfoBox
+export default InfoBox;
