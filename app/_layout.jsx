@@ -33,7 +33,6 @@ const RooyLayout = () => {
     return (
      
         <GlobalProvider>
-            <Analytics />
           <Stack>
               <Stack.Screen name="index" options={{ headerShown:
               false }} />                
