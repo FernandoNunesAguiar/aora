@@ -51,7 +51,7 @@ const SignIn = () => {
             resizeMode='contain' className="w-[115px h-[35px]" />
 
           <Text className="text-2xl text-white
-            text-semibold mt-10 font-psemibold">Log in to Aora</Text>
+            text-semibold mt-10 font-psemibold">Sign in to Aora</Text>
           <FormField
             title="Email"
             value={form.email}
