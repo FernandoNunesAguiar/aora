@@ -3,19 +3,10 @@ import { router } from "expo-router";
 import { ResizeMode, Video } from "expo-av";
 import * as DocumentPicker from "expo-document-picker";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  View,
-  Text,
-  Alert,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-
+import {View,Text,Alert,Image,TouchableOpacity,ScrollView,} from "react-native";
 import { icons } from "../../constants";
 import { createVideoPost } from "../../lib/appwrite";
-import { CustomButton } from "../../components/CustomButton"
-import { FormField } from "../../components/FormField"
+import { CustomButton, FormField } from "../../components"
 import { useGlobalContext } from "../../context/GlobalProvider";
 
 const Create = () => {
@@ -167,13 +158,14 @@ const Create = () => {
           handleChangeText={(e) => setForm({ ...form, prompt: e })}
           otherStyles="mt-7"
         />
-
-        <CustomButton
-          title="Submit & Publish"
-          handlePress={submit}
-          containerStyles="mt-7"
-          isLoading={uploading}
-        />
+        <View className="mt-5">
+          <CustomButton
+            title="Submit & Publish"
+            handlePress={submit}
+            containerStyles="mt-7"
+            isLoading={uploading}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

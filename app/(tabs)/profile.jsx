@@ -6,9 +6,7 @@ import { icons } from "../../constants";
 import useAppwrite from "../../lib/useAppwrite";
 import { getUserPosts, signOut } from "../../lib/appwrite";
 import { useGlobalContext } from "../../context/GlobalProvider";
-import { EmptyState } from '../../components/EmptyState'
-import { InfoBox } from '../../components/InfoBox'
-import { VideoCard } from '../../components/VideoCard'
+import { EmptyState, InfoBox, VideoCard } from '../../components'
 
 const Profile = () => {
   const { user, setUser, setIsLogged } = useGlobalContext();
@@ -29,11 +27,7 @@ const Profile = () => {
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
           <VideoCard
-            title={item.title}
-            thumbnail={item.thumbnail}
-            video={item.video}
-            creator={item.creator.username}
-            avatar={item.creator.avatar}
+            video={item}
           />
         )}
         ListEmptyComponent={() => (
